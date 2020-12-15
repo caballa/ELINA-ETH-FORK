@@ -448,7 +448,7 @@ bool is_top_half(opt_oct_mat_t *oo, int dim){
 			If the DBM is top, make set of components precise by removing the Independent components
 		****/
 		if(flag){
-			clear_array_comp_list(oo->acl);	
+		  //clear_array_comp_list(oo->acl);	
 		}
 	}
 	else{

@@ -487,7 +487,7 @@ bool is_top_zones_mat(opt_zones_mat_t *oz, unsigned short int dim){
 			free(ca);
 			cl = cl->next;
 		}
-		clear_array_comp_list(acl);
+		//clear_array_comp_list(acl);
 		return true;
 	}
 	else{
