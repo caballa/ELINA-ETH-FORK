@@ -34,51 +34,51 @@ opt_zones_t* opt_zones_assign_texpr_array(elina_manager_t* man,
 			      opt_zones_t* dest)
 {    
   
-   opt_zones_mat_t * oz = o->closed ? o->closed : o->m;
-	comp_list_t *clb=NULL;
-	bool need_refine = false;
-	if(oz&&!oz->is_dense){
+   /* opt_zones_mat_t * oz = o->closed ? o->closed : o->m; */
+   /* 	comp_list_t *clb=NULL; */
+   /* 	bool need_refine = false; */
+   /* 	if(oz&&!oz->is_dense){ */
 		
-		array_comp_list_t * acla = oz->acl;
+   /* 		array_comp_list_t * acla = oz->acl; */
 		
 		
-		elina_texpr0_t * expr = texpr[0];
-		clb = create_comp_list();
-		texpr0_to_comp_list_zones(clb,expr);
+   /* 		elina_texpr0_t * expr = texpr[0]; */
+   /* 		clb = create_comp_list(); */
+   /* 		texpr0_to_comp_list_zones(clb,expr); */
 	
-		comp_list_t *cld = find(acla,tdim[0]);
+   /* 		comp_list_t *cld = find(acla,tdim[0]); */
 	
-		if(!contains_comp(clb,tdim[0])){
-			if(cld!=NULL && is_disjoint(cld,clb,o->dim) && (cld->size>1)){
-				need_refine = true;
-			}
-			insert_comp(clb,tdim[0]);
-		}
+   /* 		if(!contains_comp(clb,tdim[0])){ */
+   /* 			if(cld!=NULL && is_disjoint(cld,clb,o->dim) && (cld->size>1)){ */
+   /* 				need_refine = true; */
+   /* 			} */
+   /* 			insert_comp(clb,tdim[0]); */
+   /* 		} */
 	
 		
-	}
+   /* 	} */
 	
    opt_zones_t *r = elina_generic_assign_texpr_array(man,destructive,o,tdim,texpr,size,dest);
 	
-   opt_zones_mat_t * or = r->closed ? r->closed : r->m;
-	if(or && !or->is_dense){
-		if(false){
+   /* opt_zones_mat_t * or = r->closed ? r->closed : r->m; */
+   /* 	if(or && !or->is_dense){ */
+   /* 		if(false){ */
 		
-			array_comp_list_t * acl = or->acl;
-			comp_list_t * clb_copy = create_comp_list();
-			comp_list_t * clv = find(acl,tdim[0]);
-			comp_t * cb = clb->head;
-			while(cb!=NULL){
-				if(contains_comp(clv,cb->num)){
-					remove_comp(clv,cb->num);
-					insert_comp(clb_copy,cb->num);
-				}
-				cb = cb->next;
-			}
-			insert_comp_list_tail(acl,clb_copy);
-		}
-		free_comp_list(clb);
-	}
+   /* 			array_comp_list_t * acl = or->acl; */
+   /* 			comp_list_t * clb_copy = create_comp_list(); */
+   /* 			comp_list_t * clv = find(acl,tdim[0]); */
+   /* 			comp_t * cb = clb->head; */
+   /* 			while(cb!=NULL){ */
+   /* 				if(contains_comp(clv,cb->num)){ */
+   /* 					remove_comp(clv,cb->num); */
+   /* 					insert_comp(clb_copy,cb->num); */
+   /* 				} */
+   /* 				cb = cb->next; */
+   /* 			} */
+   /* 			insert_comp_list_tail(acl,clb_copy); */
+   /* 		} */
+   /* 		free_comp_list(clb); */
+   /* 	} */
    return r;
 }
 
